@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gåde</title>
+	<style>
+		body {
+      font-family: Papyrus, Fantasy;
+      text-align: center;
+      background-image: url('vback.jpg');
+      background-size: cover;
+      background-position: background-position: center;
+    }
+
+		.container {
+			width: 50%;
+			margin: 50px auto;
+			padding: 20px;
+			background-color: #ffffff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+
+		.password-input {
+			margin-bottom: 20px;
+		}
+
+		.password-input label {
+			display: block;
+			margin-bottom: 5px;
+			font-weight: bold;
+			color: #333;
+		}
+
+		.password-input input[type="password"] {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			font-size: 16px;
+			border: 2px solid #000000;
+			border-radius: 5px;
+			box-sizing: border-box;
+		}
+
+		.password-input button {
+			background-color: #000000;
+			color: #fdfcfc;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+			transition: background-color 0.2s ease;
+		}
+
+		.password-input button:hover {
+			background-color: #868686;
+		}
+
+		.hidden-content {
+			display: none;
+			padding: 20px;
+			background-color: #555555;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+
+		.hidden-content p {
+			margin-bottom: 10px;
+			color: #333;
+		}
+
+		.hidden-content a {
+			color: #000000;
+			font-weight: bold;
+			text-decoration: none;
+			transition: color 0.2s ease;
+		}
+
+		.hidden-content a:hover {
+			color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<h1>For at kunne svare på mit spørsmål skal du først kunne løse denne gåde</h1>
+	<p><h2>Jeg er et tal, der er både transcendent og irrationelt<h2><p>
+	<p><h2>min decimal ekspansion er uendelig og uforudsigelig,<h2><p>
+	<p><h2>jeg er en konstant, der har eksisteret i tusindvis af år,<h2><p>
+    <p><h2>men min hemmelighed er stadig ikke helt afdækket.<h2><p>		
+	<div class="container">
+		<div class="password-input">
+			<label for="password">Hvem er på puslespillet?</label>
+			<input type="password" id="password">
+			<button onclick="checkPassword()">Tjek</button>
+		</div>
+		<div class="hidden-content" id="hidden-content">
+			<p>Congratulations! You have entered the correct password.</p>
+			<a href="index.html">Click here to go to the next page.</a>
+		</div>
+	</div>
+
+	<script>
+		function checkPassword() {
+			var password = document.getElementById("password").value;
+			if (password == "Viola") {
+				window.location.href = "Uge1.html";
+			} else {
+				alert("Incorrect password. Please try again.");
+			}
+		}
+	</script>
+</body>
+</html>

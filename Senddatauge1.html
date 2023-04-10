@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gåde</title>
+  <style>
+    body {
+      font-family: Papyrus, Fantasy;
+      text-align: center;
+      background-image: url('vback.jpg');
+      background-size: cover;
+      background-position: background-position: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-top: 2rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+    button {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+      background-color: #000000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 2rem;
+    }
+    button:hover {
+      background-color: #525252;
+    }
+    #countdown {
+      font-size: 3rem;
+      margin-top: 2rem;
+    }
+    #countdown-finished {
+      font-size: 3rem;
+      color: red;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body><body style="color: rgb(0, 0, 0);">
+  <div>   </div>
+  <h1>Data overførelse</h1>
+  <p>Overfør dataen til Viola:</p>
+  <button onclick="startCountdown()">Start forsendelsen</button>
+  <p id="countdown"></p>
+  <p id="countdown-finished"></p>
+  <div id="button-container"></div>
+  <script>
+    function startCountdown() {
+      // Set the date and time for the countdown (must be in ISO format)
+      const countdownDate = new Date("2023-04-17T09:15:00Z").getTime();
+
+      // Update the countdown every second
+      const countdownTimer = setInterval(function() {
+
+        // Get today's date and time
+        const now = new Date().getTime();
+
+        // Find the difference between the countdown date and today's date and time
+        const distance = countdownDate - now;
+
+        // Calculate the days, hours, minutes, and seconds remaining
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Update the countdown element with the remaining time
+        document.getElementById("countdown").innerHTML = "Sender data til Viola vent venligst: " + days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+
+        // Stop the countdown and display a message and button when the countdown reaches zero
+        if (distance < 0) {
+          clearInterval(countdownTimer);
+          document.getElementById("countdown").style.display = "none";
+          document.getElementById("countdown-finished").innerHTML = "Næste face er nu igang, gå til svar";
+          document.getElementById("button-container").innerHTML = '<button onclick="redirectToNewPage()">Svar</button>';
+        }
+      }, 1000);
+    }
+
+    function redirectToNewPage() {
+      window.location.href = "Uge2.html";
+    }
+  </script>
+</body>
+</html>
